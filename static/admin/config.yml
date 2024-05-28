@@ -30,4 +30,9 @@ collections:
           preview: false
         file: "config/_default/config.toml"
         fields: # List of fields for the category front matter
-        - {label: "Disqus Shortname", name: "disqusShortname", widget: "string"}
+         - {label: "Title", name: "title", widget: "string"}
+         - {label: "Base URL", name: "baseurl", widget: "string"}
+         - {label: "Language Code", name: "languageCode", widget: "string"}
+         - {label: "Default Content Language", name: "defaultContentLanguage", widget: "string"}
+         - {label: "Disqus Shortname", name: "disqusShortname", widget: "string"}
+         - {label: "Paginate", name: "paginate", widget: "number", value_type: "int" }
