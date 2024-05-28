@@ -1,38 +1,21 @@
 backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
-media_folder: "static/uploads" # Adjust based on your media storage location
-public_folder: "/uploads" # URL path for accessing media
+
+media_folder: "static/img" # Adjust based on your media storage location
+public_folder: "/img" # URL path for accessing media
 
 collections:
-  - name: "posts" # This is the name used in the URL
-    label: "Post" # This is the singular name of the content type for the UI
-    folder: "content/post" # The folder where your posts markdown files will be saved
-    create: true # Allows users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template for new posts
-    fields: # List of fields for the front matter
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Image", name: "image", widget: "image", required: false }
-      - { label: "Hidden", name: "hidden", widget: "boolean", default: false }
-      - { label: "Comments", name: "comments", widget: "boolean", default: true }
-      - { label: "Draft", name: "draft", widget: "boolean", default: false }
-      - { label: "Weight", name: "weight", widget: "number" }
-      - { label: "Body", name: "body", widget: "markdown" }
-
-  - label: "Site Settings"
-    name: "settings"
+  - name: "config"
+    label: "Site Configuration"
+    delete: false # Prevents file deletion from the CMS
+    editor:
+      preview: false
     files:
-      - label: "General settings"
+      - label: "General Settings"
         name: "config"
-        editor:
-          preview: false
-        file: "config/_default/config.toml"
-        fields: # List of fields for the category front matter
-         - {label: "Title", name: "title", widget: "string"}
-         - {label: "Base URL", name: "baseurl", widget: "string"}
-         - {label: "Language Code", name: "languageCode", widget: "string"}
-         - {label: "Default Content Language", name: "defaultContentLanguage", widget: "string"}
-         - {label: "Disqus Shortname", name: "disqusShortname", widget: "string"}
-         - {label: "Paginate", name: "paginate", widget: "number", value_type: "int" }
+        file: "hugo.toml" # Adjust the file location based on your Hugo structure
+        fields:
+          - { label: "Base URL", name: "baseURL", widget: "string" }
+          - { label: "Language Code", name: "languageCode", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
