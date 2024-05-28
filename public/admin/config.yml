@@ -20,3 +20,14 @@ collections:
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Weight", name: "weight", widget: "number" }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - label: "Site Settings"
+    name: "settings"
+    files:
+      - label: "General settings"
+        name: "config"
+        editor:
+          preview: false
+        file: "config/_default/config.toml"
+        fields: # List of fields for the category front matter
+        - {label: "Disqus Shortname", name: "disqusShortname", widget: "string"}
